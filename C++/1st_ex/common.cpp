@@ -12,7 +12,9 @@ bool is_prime(int num) {
   return true;
 }
 
-bool ferma(int a, int p) { return is_prime(p) && a % p != 0; }
+bool ferma(int a, int x, int p) { 
+	return is_prime(p) && a % p != 0 && x % (p - 1) == 0; 
+}
 
 string to_binary(int num) {
   int t = log2(num);

@@ -8,6 +8,6 @@ using namespace std;
 
 string to_binary(int);
 bool is_prime(int);
-bool ferma(int, int);
+bool ferma(int, int, int);
 
 #endif // COMMON_H
