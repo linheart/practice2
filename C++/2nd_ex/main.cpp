@@ -2,33 +2,40 @@
 
 using namespace std;
 
-int ex_gcd(int, int, int &, int &);
-int mod_inverse(int, int);
+void extendedEuclid(int, int, int &, int &);
 
 int main() {
   int c, m;
   cin >> c >> m;
-  cout << mod_inverse(c, m);
+
+  int d, gcd;
+  extendedEuclid(c, m, d, gcd);
+
+  if (gcd == 1)
+    cout << (d % m + m) % m << endl;
+  else
+    cout << "the numbers must be mutually inverse" << endl;
 
   return 0;
 }
 
-int mod_inverse(int c, int m) {
-  int x, y;
-  if (ex_gcd(c, m, x, y) == 1)
-    return (x % m + m) % m;
-  return -1;
-}
+void extendedEuclid(int c, int m, int &d, int &gcd) {
+  int x = 0, y = 1, lastx = 1, lasty = 0, temp;
+  while (m != 0) {
+    int q = c / m;
+    int r = c % m;
 
-int ex_gcd(int c, int m, int &x, int &y) {
-  if (m == 0) {
-    x = 1;
-    y = 0;
-    return c;
+    c = m;
+    m = r;
+
+    temp = x;
+    x = lastx - q * x;
+    lastx = temp;
+
+    temp = y;
+    y = lasty - q * y;
+    lasty = temp;
   }
-  int x1, y1;
-  int d = ex_gcd(m, c % m, x1, y1);
-  x = y1;
-  y = x1 - (c / m) * y1;
-  return d;
+  gcd = c;
+  d = lastx;
 }
