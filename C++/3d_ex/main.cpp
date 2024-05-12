@@ -10,7 +10,7 @@ struct Step {
   int q;
 };
 
-void ex_euclid(int, int, vector<Step> &, int &, int &);
+int ex_euclid(int, int, vector<Step> &, int &);
 void print_table(vector<Step> &);
 
 int main() {
@@ -18,8 +18,8 @@ int main() {
   cin >> c >> m;
 
   vector<Step> steps;
-  int d, gcd;
-  ex_euclid(c, m, steps, d, gcd);
+  int gcd;
+  int d = ex_euclid(c, m, steps, gcd);
   print_table(steps);
 
   if (gcd == 1)
@@ -30,7 +30,7 @@ int main() {
   return 0;
 }
 
-void ex_euclid(int c, int m, vector<Step> &steps, int &d, int &gcd) {
+int ex_euclid(int c, int m, vector<Step> &steps, int &gcd) {
   int x = 0, y = 1, lastx = 1, lasty = 0, temp;
   while (m != 0) {
     int q = c / m;
@@ -51,7 +51,7 @@ void ex_euclid(int c, int m, vector<Step> &steps, int &d, int &gcd) {
   }
   steps.push_back({m, x, y, 0});
   gcd = c;
-  d = lastx;
+  return lastx;
 }
 
 void print_table(vector<Step> &steps) {
