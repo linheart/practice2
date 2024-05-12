@@ -2,14 +2,14 @@
 
 using namespace std;
 
-void extendedEuclid(int, int, int &, int &);
+void ex_euclid(int, int, int &, int &);
 
 int main() {
   int c, m;
   cin >> c >> m;
 
   int d, gcd;
-  extendedEuclid(c, m, d, gcd);
+  ex_euclid(c, m, d, gcd);
 
   if (gcd == 1)
     cout << (d % m + m) % m << endl;
@@ -19,7 +19,7 @@ int main() {
   return 0;
 }
 
-void extendedEuclid(int c, int m, int &d, int &gcd) {
+void ex_euclid(int c, int m, int &d, int &gcd) {
   int x = 0, y = 1, lastx = 1, lasty = 0, temp;
   while (m != 0) {
     int q = c / m;

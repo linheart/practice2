@@ -10,8 +10,8 @@ struct Step {
   int q;
 };
 
-void extendedEuclid(int, int, vector<Step> &, int &, int &);
-void printTable(vector<Step> &);
+void ex_euclid(int, int, vector<Step> &, int &, int &);
+void print_table(vector<Step> &);
 
 int main() {
   int c, m;
@@ -19,8 +19,8 @@ int main() {
 
   vector<Step> steps;
   int d, gcd;
-  extendedEuclid(c, m, steps, d, gcd);
-  printTable(steps);
+  ex_euclid(c, m, steps, d, gcd);
+  print_table(steps);
 
   if (gcd == 1)
     cout << (d % m + m) % m << endl;
@@ -30,7 +30,7 @@ int main() {
   return 0;
 }
 
-void extendedEuclid(int c, int m, vector<Step> &steps, int &d, int &gcd) {
+void ex_euclid(int c, int m, vector<Step> &steps, int &d, int &gcd) {
   int x = 0, y = 1, lastx = 1, lasty = 0, temp;
   while (m != 0) {
     int q = c / m;
@@ -54,7 +54,7 @@ void extendedEuclid(int c, int m, vector<Step> &steps, int &d, int &gcd) {
   d = lastx;
 }
 
-void printTable(vector<Step> &steps) {
+void print_table(vector<Step> &steps) {
   cout << "r\t\tx\t\ty\t\tq\n";
   for (const Step &step : steps) {
     cout << step.r << "\t\t" << step.x << "\t\t" << step.y << "\t\t" << step.q
