@@ -1,10 +1,7 @@
 def ex_euclid(c, m):
-    x = 0
-    y = 1
-    lastx = 1
-    lasty = 0
+    x, y, lastx, lasty = 0, 1, 1, 0
     while m != 0:
-        q = c / m
+        q = c // m
         r = c % m
 
         c = m
@@ -18,7 +15,7 @@ def ex_euclid(c, m):
         y = lasty - q * y
         lasty = temp
 
-    return c, int(lastx)
+    return c, lastx
 
 
 if __name__ == '__main__':
