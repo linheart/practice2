@@ -1,6 +1,7 @@
 #ifndef COMMON_H // COMMON_H
 #define COMMON_H
 
+#include <cstdint>
 #include <vector>
 #include <cmath>
 #include <algorithm>
@@ -10,11 +11,12 @@ using namespace std;
 
 #define sieve_size 10000
 
+int64_t mod_pow(int64_t a, int64_t x, int64_t p);
 vector<int> sieve(int num);
-int gen_rand_num(int start, int end);
-int gen_prime_num();
-int find_coprime_num(int n);
-int gcd(int a, int b);
-int ex_euclid(int c, int m);
+int64_t gen_rand_num(int64_t start, int64_t end);
+int64_t gen_prime_num();
+int64_t find_coprime_num(int64_t n);
+int64_t gcd(int64_t a, int64_t b);
+int64_t ex_euclid(int64_t c, int64_t m);
 
 #endif // COMMON_H
