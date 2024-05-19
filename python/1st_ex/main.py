@@ -20,6 +20,3 @@ if __name__ == '__main__':
         x = x % (p - 1)
         print(mod_pow.mod_pow(a, x, p))
         print(mod_pow_log.mod_pow_log(a, x, p))
-    
-
-
