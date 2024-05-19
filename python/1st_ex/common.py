@@ -10,7 +10,3 @@ def is_prime(num):
         if num % i == 0 or num % (i + 2) == 0:
             return False
     return True
-
-def ferma(a, x, p):
-    return is_prime(p) and a % p != 0 and x % (p - 1) == 0
-
