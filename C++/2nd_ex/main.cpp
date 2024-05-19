@@ -8,7 +8,7 @@ int main() {
   int c, m;
   cin >> c >> m;
 
-	int gcd;
+  int gcd;
   int d = ex_euclid(c, m, gcd);
 
   if (gcd == 1)

@@ -11,6 +11,7 @@ using namespace std;
 
 #define sieve_size 10000
 
+bool is_prime(int64_t num);
 int64_t mod_pow(int64_t a, int64_t x, int64_t p);
 vector<int> sieve(int num);
 int64_t gen_rand_num(int64_t start, int64_t end);

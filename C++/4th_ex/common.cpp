@@ -1,13 +1,33 @@
 #include "common.h"
 
+bool is_prime(int64_t num) {
+  if (num <= 1 || num % 2 == 0 || num % 3 == 0)
+    return false;
+  if (num <= 3)
+    return true;
+
+  for (int i = 5; i < sqrt(num); i += 6)
+    if (num % i == 0 || num % (i + 2) == 0)
+      return false;
+  return true;
+}
+
 int64_t mod_pow(int64_t a, int64_t x, int64_t p) {
   int64_t res = 1;
-  while (x > 0) {
-    if (x % 2 == 1)
-      res = (res * a) % p;
-    a = (a * a) % p;
+  a = a % p;
+  if (a == 0)
+    return a;
+
+  if (is_prime(p))
+    x = x % (p - 1);
+
+	while (x > 0) {
+    if (x & 1)
+      res = res * a % p;
+    a = a * a % p;
     x >>= 1;
   }
+
   return res;
 }
 
